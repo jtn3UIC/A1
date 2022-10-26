@@ -49,11 +49,13 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this,
                     new String[]{"edu.uic.cs478.fall22.mp3"},
                     1);
+            permissionCheck = ContextCompat.checkSelfPermission(this, "edu.uic.cs478.fall22.mp3");
+            if (PackageManager.PERMISSION_GRANTED == permissionCheck) {
+                System.out.println("allowed 2");
+            }
+            
         }
-        permissionCheck = ContextCompat.checkSelfPermission(this, "edu.uic.cs478.fall22.mp3");
-        if (PackageManager.PERMISSION_GRANTED == permissionCheck) {
-            System.out.println("allowed 2");
-        }
+
 
 
     }
