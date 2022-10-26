@@ -1,7 +1,11 @@
 package com.example.a1;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static java.security.AccessController.getContext;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,5 +38,10 @@ public class MainActivity extends AppCompatActivity {
                 //System.out.println("")
             }
         });
+        if(ContextCompat.checkSelfPermission(this, "edu.uic.cs478.fall22.mp3") == PackageManager.PERMISSION_GRANTED) {
+            System.out.println("allowed");
+        }
+
     }
+
 }
