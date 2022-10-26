@@ -3,6 +3,7 @@ package com.example.a1;
 import static java.security.AccessController.getContext;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.content.pm.PackageManager;
@@ -38,9 +39,22 @@ public class MainActivity extends AppCompatActivity {
                 //System.out.println("")
             }
         });
-        if(ContextCompat.checkSelfPermission(this, "edu.uic.cs478.fall22.mp3") == PackageManager.PERMISSION_GRANTED) {
+        // Assume thisActivity is the current activity
+        int permissionCheck = ContextCompat.checkSelfPermission(this, "edu.uic.cs478.fall22.mp3");
+        if (PackageManager.PERMISSION_GRANTED == permissionCheck) {
             System.out.println("allowed");
+        } else {
+            /* Otherwise request permission */
+            System.out.println("REQUESTING");
+            ActivityCompat.requestPermissions(this,
+                    new String[]{"edu.uic.cs478.fall22.mp3"},
+                    1);
         }
+        permissionCheck = ContextCompat.checkSelfPermission(this, "edu.uic.cs478.fall22.mp3");
+        if (PackageManager.PERMISSION_GRANTED == permissionCheck) {
+            System.out.println("allowed 2");
+        }
+
 
     }
 
