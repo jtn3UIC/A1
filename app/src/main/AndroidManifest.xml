@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.a1">
 
+    <permission
+        android:name="edu.uic.cs478.fall22.mp3"
+        android:label="Activates A2"
+        android:description="passed to A2 to work"
+        android:protectionLevel="dangerous" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
