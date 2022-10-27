@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast toast = Toast.makeText(view.getContext(), "Send Hotel Intent", Toast.LENGTH_SHORT);
                 toast.show();
+                Intent hIntent = new Intent("hotel");
+                sendBroadcast(hIntent);
                 //System.out.println("")
             }
         });
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast toast = Toast.makeText(view.getContext(), "Send Attract Intent", Toast.LENGTH_SHORT);
                 toast.show();
+                Intent hIntent = new Intent("attract");
+                sendBroadcast(hIntent);
                 //System.out.println("")
             }
         });
